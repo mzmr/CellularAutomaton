@@ -485,6 +485,8 @@ public class MainWindow extends JFrame {
 		applyODGRules();
 		applyWrappedMap();
 		applyQuadState();
+		
+		InitialStructure.isQuadState = settings.isQuadState;
 	}
 	
 	private void applyGameType() {

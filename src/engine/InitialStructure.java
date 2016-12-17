@@ -167,13 +167,15 @@ public class InitialStructure {
 		if (isQuadState) {
 			CellState[] aliveStates;
 			
-			aliveStates = new CellState[QuadState.values().length];
+			aliveStates = new CellState[QuadState.values().length - 1];
 			int i = 0;
 			for (CellState s : QuadState.values()) {
 				if (s == QuadState.DEAD)
 					continue;
 				aliveStates[i++] = s;
 			}
+			
+			return aliveStates;
 		}
 		
 		return null;
