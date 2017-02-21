@@ -95,6 +95,7 @@ public class MainWindow extends JFrame {
 	private void initComponents() {
 		setBounds(100, 100, 1209, 736);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Cellular Automaton - \u00A9 Maciej Znamirowski - maciek@znamirowski.pl");
 		
 		pnlMain = new JPanel();
 		pnlMain.setBorder(null);
@@ -113,7 +114,7 @@ public class MainWindow extends JFrame {
 		pnlGameType = new JPanel();
 		pnlGameType.setPreferredSize(new Dimension(200, 64));
 		pnlSettings.add(pnlGameType);
-		pnlGameType.setBorder(new TitledBorder(null, "Gra", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		pnlGameType.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Game type", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		
 		cboxGameType = new JComboBox<>();
 		cboxGameType.setModel(new DefaultComboBoxModel<Game>(Game.values()));
@@ -137,12 +138,12 @@ public class MainWindow extends JFrame {
 		pnlNeighborhood = new JPanel();
 		pnlNeighborhood.setPreferredSize(new Dimension(200, 89));
 		pnlSettings.add(pnlNeighborhood);
-		pnlNeighborhood.setBorder(new TitledBorder(null, "S\u0105siedztwo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		pnlNeighborhood.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Neighborhood", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		
 		cboxNeighborsType = new JComboBox<>();
 		cboxNeighborsType.setModel(new DefaultComboBoxModel<Neighborhood>(Neighborhood.values()));
 		
-		lblNeighborRadius = new JLabel("Promie\u0144:");
+		lblNeighborRadius = new JLabel("Radius:");
 		
 		spinNeighborRadius = new JSpinner();
 		spinNeighborRadius.setModel(new SpinnerNumberModel(new Integer(1), new Integer(1), null, new Integer(1)));
@@ -152,11 +153,11 @@ public class MainWindow extends JFrame {
 				.addGroup(gl_pnlNeighborhood.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_pnlNeighborhood.createParallelGroup(Alignment.LEADING)
-						.addComponent(cboxNeighborsType, 0, 160, Short.MAX_VALUE)
+						.addComponent(cboxNeighborsType, 0, 168, Short.MAX_VALUE)
 						.addGroup(gl_pnlNeighborhood.createSequentialGroup()
 							.addComponent(lblNeighborRadius)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(spinNeighborRadius, GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(spinNeighborRadius, GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)))
 					.addContainerGap())
 		);
 		gl_pnlNeighborhood.setVerticalGroup(
@@ -168,18 +169,18 @@ public class MainWindow extends JFrame {
 					.addGroup(gl_pnlNeighborhood.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNeighborRadius)
 						.addComponent(spinNeighborRadius, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(18, Short.MAX_VALUE))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		pnlNeighborhood.setLayout(gl_pnlNeighborhood);
 		
 		pnlMapSize = new JPanel();
 		pnlMapSize.setPreferredSize(new Dimension(200, 185));
 		pnlSettings.add(pnlMapSize);
-		pnlMapSize.setBorder(new TitledBorder(null, "Wymiary mapy", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		pnlMapSize.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Map dimensions", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		
-		JLabel lblSzeroko = new JLabel("Szeroko\u015B\u0107:");
+		JLabel lblSzeroko = new JLabel("Width:");
 		
-		JLabel lblWysoko = new JLabel("Wysoko\u015B\u0107:");
+		JLabel lblWysoko = new JLabel("Height:");
 		
 		sliderMapWidth = new JSlider();
 		sliderMapWidth.setValue(settings.mapWidth);
@@ -231,7 +232,7 @@ public class MainWindow extends JFrame {
 		pnlRulesGOL = new JPanel();
 		pnlRulesGOL.setPreferredSize(new Dimension(200, 64));
 		pnlSettings.add(pnlRulesGOL);
-		pnlRulesGOL.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Regu\u0142y gry", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		pnlRulesGOL.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Rules", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		
 		txtRulesGOL = new JTextField();
 		txtRulesGOL.setText("2,3/3");
@@ -256,7 +257,7 @@ public class MainWindow extends JFrame {
 		pnlRulesODG = new JPanel();
 		pnlRulesODG.setPreferredSize(new Dimension(200, 64));
 		pnlSettings.add(pnlRulesODG);
-		pnlRulesODG.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Regu\u0142y gry", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		pnlRulesODG.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Rules", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		
 		spinRulesODG = new JSpinner();
 		spinRulesODG.setModel(new SpinnerNumberModel(30, 0, 255, 1));
@@ -278,7 +279,7 @@ public class MainWindow extends JFrame {
 		pnlRulesODG.setLayout(gl_pnlRulesODG);
 		pnlMain.add(pnlSettings, BorderLayout.WEST);
 		
-		chkIsMapWrapped = new JCheckBox("Zawijanie mapy");
+		chkIsMapWrapped = new JCheckBox("Map wrapping");
 		chkIsMapWrapped.setPreferredSize(new Dimension(200, 23));
 		pnlSettings.add(chkIsMapWrapped);
 		
@@ -286,7 +287,7 @@ public class MainWindow extends JFrame {
 		chkIsQuadState.setPreferredSize(new Dimension(200, 23));
 		pnlSettings.add(chkIsQuadState);
 		
-		btnApplySettings = new JButton("Zaakceptuj ustawienia");
+		btnApplySettings = new JButton("Apply settings");
 		btnApplySettings.setPreferredSize(new Dimension(200, 23));
 		pnlSettings.add(btnApplySettings);
 		pnlMain.add(board);
@@ -296,13 +297,13 @@ public class MainWindow extends JFrame {
 		panel_1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		pnlMain.add(panel_1, BorderLayout.SOUTH);
 		
-		btnNextStep = new JButton("Nast\u0119pny krok");
+		btnNextStep = new JButton("Next state");
 		
-		JLabel lblDodanaKomrka = new JLabel("Dodana kom\u00F3rka:");
+		JLabel lblDodanaKomrka = new JLabel("Added cell:");
 		
 		lblNewCellState = new JLabel("");
 		
-		lblStructureFamily = new JLabel("Rodzina struktur:");
+		lblStructureFamily = new JLabel("Structure family:");
 		
 		cboxStructureFamily = new JComboBox<>();
 		cboxStructureFamily.setModel(new DefaultComboBoxModel<>(GOLStructure.values()));
@@ -310,19 +311,19 @@ public class MainWindow extends JFrame {
 		cboxStructure = new JComboBox<Structure>();
 		cboxStructure.setModel(new DefaultComboBoxModel<>(Still.values()));
 		
-		lblStructure = new JLabel("Struktura:");
+		lblStructure = new JLabel("Structure:");
 		
-		btnAddStructure = new JButton("Dodaj");
+		btnAddStructure = new JButton("Add");
 		
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
 			gl_panel_1.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panel_1.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(lblDodanaKomrka, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
+					.addComponent(lblDodanaKomrka)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblNewCellState)
-					.addPreferredGap(ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 222, Short.MAX_VALUE)
 					.addComponent(lblStructureFamily)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(cboxStructureFamily, GroupLayout.PREFERRED_SIZE, 168, GroupLayout.PREFERRED_SIZE)
@@ -345,8 +346,8 @@ public class MainWindow extends JFrame {
 					.addComponent(lblStructure)
 					.addComponent(cboxStructureFamily, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addComponent(lblStructureFamily))
-				.addComponent(lblDodanaKomrka, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
 				.addComponent(lblNewCellState, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+				.addComponent(lblDodanaKomrka, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
 		);
 		panel_1.setLayout(gl_panel_1);
 		

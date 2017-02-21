@@ -11,7 +11,7 @@ public class Main {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Throwable e) {
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, e.getMessage(), "B³¹d", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Bï¿½ï¿½d", JOptionPane.ERROR_MESSAGE);
 		}
 		
 		EventQueue.invokeLater(new Runnable() {
